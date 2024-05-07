@@ -26,7 +26,7 @@ spec:
           limits:
             memory: "1Gi"
             cpu: "1"
-        livelinessProbe:
+        livenessProbe:
           exec:
             command:
             - echo "hello"
