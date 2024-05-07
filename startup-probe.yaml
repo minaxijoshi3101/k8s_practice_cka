@@ -9,10 +9,10 @@ spec:
   selector: 
     matchLabels: 
       app: startup
-    template: 
-      metadata: 
-        labels: 
-          app: startup
+  template: 
+    metadata: 
+      labels: 
+        app: startup
     spec:
       containers:
       - name: nginx
