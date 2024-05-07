@@ -25,4 +25,4 @@ spec:
             - cat 
             - /var/www/index.htmll
           failureThreshold: 2
-          periodseconds: 3
+          periodSeconds: 3
