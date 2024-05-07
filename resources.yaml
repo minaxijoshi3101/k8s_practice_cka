@@ -18,10 +18,10 @@ spec:
       - name: resource-demo
         image: polinux/stress
         command: ["stress"]
-        args: ["--cpu","2"]
+        args: ["--cpu","2","--vm", "1", "--vm-bytes","1G", "--vm-hang","1"]
         resources:
           requests:
-            memory: "200Mi"
+            memory: "10Gi"
             cpu: "1"
           limits:
             memory: "1Gi"
