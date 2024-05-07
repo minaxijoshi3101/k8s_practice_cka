@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: startup
+  labels: 
+    app: starup
+spec:
+  replicas: 3
+  selector: 
+    matchLabels: 
+      app: startup
+    template: 
+      metadata: 
+        labels: 
+          app: startup
+    spec:
+      containers:
+      - name: nginx
+        image: lovelearnlinux/webserver:v1
+        ports: 
+        - containerPort: 80
+        startupProbe:
+          exec: 
+            command: 
+            - cat 
+            - /var/www/index.htmll
+          failureThreshold: 2
+          periodseconds: 3
