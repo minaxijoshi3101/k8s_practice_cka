@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rediness-probe
+  labels:
+    app: rediness
+spec:
+  replicas: 2
+  selector: 
+    matchLabels: 
+      app: rediness
+  template:
+    metadata: 
+      labels:
+        app: rediness
+    spec:
+      containers:
+      - name: nginx
+        image: lovelearnlinux/webserver:v1
+        ports:
+          - containerPort: 8080
+        redinessProbe:
+          tcpSocket:
+            port: 8080
