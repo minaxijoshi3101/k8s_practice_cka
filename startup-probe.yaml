@@ -23,6 +23,6 @@ spec:
           exec: 
             command: 
             - cat 
-            - /var/www/index.htmll
+            - /var/www/index.html
           failureThreshold: 2
           periodSeconds: 3
