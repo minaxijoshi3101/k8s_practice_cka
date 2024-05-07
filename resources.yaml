@@ -24,7 +24,7 @@ spec:
             memory: "10Gi"
             cpu: "1"
           limits:
-            memory: "1Gi"
+            memory: "11Gi"
             cpu: "1"
         livenessProbe:
           exec:
