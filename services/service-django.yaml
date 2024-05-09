@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: python-django-service
 spec:
-  kind: NodePort
+  type: NodePort
   selector: 
     app: django
   ports:
