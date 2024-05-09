@@ -18,7 +18,7 @@ spec:
       - name: django-container
         image: minaxijoshi/python-django-app:latest
         ports: 
-        - containerPort: 80
+        - containerPort: 8000
         livenessProbe: 
           tcpSocket:
-            port: 80
+            port: 8000
