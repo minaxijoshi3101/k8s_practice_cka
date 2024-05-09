@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: django-container
-        image: public.ecr.aws/w2w0c6f7/python-django-app:latest
+        image: minaxijoshi/python-django-app:latest
         ports: 
         - containerPort: 80
         livenessProbe: 
