@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Service
+metadata:
+  name: python-django-service
+spec:
+  kind: NodePort
+  selector: 
+    app: django
+  ports:
+  - port: 8080
+    #target port is the port, where application is actually running
+    targetPort: 8000
+    nodePort: 30007
