@@ -21,4 +21,4 @@ spec:
         - containerPort: 80
         livenessProbe: 
           tcpSocket:
-            port: 8080
+            port: 80
