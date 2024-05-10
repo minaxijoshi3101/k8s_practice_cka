@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-java-app-config
+data:
+  application.properties: |
+    logging.level.root=INFO
+    database.url=jdbc:mysql://db-server:3306/my_database
+    database.username=my_username
+    database.password=my_password
+  external-services.properties: |
+    external.api.url=https://api.example.com
+  resource-limits.yaml: |
+    cpu: 500m
+    memory: 512Mi

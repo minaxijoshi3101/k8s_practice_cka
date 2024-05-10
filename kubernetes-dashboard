@@ -1,0 +1,47 @@
+1.kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml --validate=false  
+
+
+2.vi admin-user-service-account.yaml -n kubenetes-dashboard  (to create service account)
+ 
+          { apiVersion: v1
+           kind: ServiceAccount
+           metadata:
+               name: admin-user
+               namespace: kubernetes-dashboard }
+ 
+3.vi admin-user-cluster-role-binding.yaml -n kubenetes-dashboard  (cluster role binding creation)
+ 
+                 {apiVersion: rbac.authorization.k8s.io/v1
+                  kind: ClusterRoleBinding
+                  metadata:
+                      name: admin-user
+                  roleRef:
+                      apiGroup: rbac.authorization.k8s.io
+                      kind: ClusterRole
+                      name: cluster-admin
+                  subjects:
+                  - kind: ServiceAccount
+                      name: admin-user
+                      namespace: kubernetes-dashboard }
+ 
+4.kubectl apply -f admin-user-cluster-role-binding.yaml -n kubernetes-dashboard 
+5.kubectl apply -f admin-user-service-account.yaml -n kubernetes-dashboard
+6.vi secret.yaml (to create token)
+7.kubectl apply -f secret.yaml
+ 
+                 {apiVersion: v1
+                  kind: Secret
+                  metadata:
+                        name: admin-user
+                        namespace: kubernetes-dashboard
+                        annotations:
+                             kubernetes.io/service-account.name: "admin-user"   
+                 type: kubernetes.io/service-account-token  }
+ 
+8.kubectl get secret admin-user -n kubernetes-dashboard -o jsonpath={".data.token"} | base64 -d (to get token)
+
+9.kubectl get all -n kubernetes-dashboard 
+
+10.kubectl edit service/kubernetes-dashboard -n kubernetes-dashboard (edit cluster ip to NodePort)
+
+11.kubectl get nodes -o wide  (get  node External ip and NodePort(30000-32000) that particular port should be enable in cloud as  Inbound rule when your cluster is cloud mangaed cluster  so we can access dashbaord by using to node  external ip along with node port.

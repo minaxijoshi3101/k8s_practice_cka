@@ -1,0 +1,10 @@
+#To store data/information, which may be required to pods/apps
+apiVersion: v1 
+kind: ConfigMap
+metadata:
+  name: test-cm
+data: 
+  db-port: "3306"
+  host : mysql
+  dbName: EmployeeDB
+  
