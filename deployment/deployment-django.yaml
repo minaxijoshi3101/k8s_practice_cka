@@ -22,19 +22,30 @@ spec:
         livenessProbe: 
           tcpSocket:
             port: 8000
-        env:
-        - name: DB-PORT
-          valueFrom: 
-            configMapKeyRef:
-              name: test-cm
-              key: db-port
-        - name: HOST 
-          valueFrom:
-            configMapKeyRef:
-              name: test-cm
-              key: host
-        - name: DBNAME 
-          valueFrom:
-            configMapKeyRef: 
-              name: test-cm
-              key: host
+        #access configmap data using env - drawback, if we change the port number in configmap.yaml, it wont get changed inside the pod's env variable
+        #env:
+        #- name: DB-PORT
+        #  valueFrom: 
+        #    configMapKeyRef:
+        #      name: test-cm
+        #      key: db-port
+        #- name: HOST 
+        #  valueFrom:
+        #   configMapKeyRef:
+        #      name: test-cm
+        #      key: host
+        #- name: DBNAME 
+        #  valueFrom:
+        #    configMapKeyRef: 
+        #      name: test-cm
+        #      key: host
+        #2. use volume mount
+        voulumeMounts: 
+        - name: db-connection
+          mount: /opt/
+      #1. create volume at container volume
+      volumes:
+      - name: db-connection
+        #read the value from configmap
+        configMap:
+          name: test-cm
