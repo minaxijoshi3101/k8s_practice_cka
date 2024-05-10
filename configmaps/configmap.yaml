@@ -4,7 +4,7 @@ kind: ConfigMap
 metadata:
   name: test-cm
 data: 
-  db-port: "3306"
+  db-port: "3307"
   host : mysql
   dbName: EmployeeDB
   
