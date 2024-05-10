@@ -22,3 +22,19 @@ spec:
         livenessProbe: 
           tcpSocket:
             port: 8000
+        env:
+        - name: DB-PORT
+          valueFrom: 
+            configMapRef:
+              name: test-cm
+              key: db-port
+        - name: HOST 
+          valueFrom:
+            configMapKeyRef:
+              name: test-cm
+              key: host
+        - name: DBNAME 
+          valueFrom:
+            configMapKeyRef: 
+              name: test-cm
+              key: host
