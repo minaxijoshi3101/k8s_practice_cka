@@ -42,7 +42,7 @@ spec:
         #2. use volume mount
         volumeMounts: 
         - name: db-connection
-          mount: /opt/
+          mountPath: /opt/
       #1. create volume at container volume
       volumes:
       - name: db-connection
