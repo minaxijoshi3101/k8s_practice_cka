@@ -25,7 +25,7 @@ spec:
         env:
         - name: DB-PORT
           valueFrom: 
-            configMapRef:
+            configMapKeyRef:
               name: test-cm
               key: db-port
         - name: HOST 
