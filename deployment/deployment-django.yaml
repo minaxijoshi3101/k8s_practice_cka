@@ -40,7 +40,7 @@ spec:
         #      name: test-cm
         #      key: host
         #2. use volume mount
-        voulumeMounts: 
+        volumeMounts: 
         - name: db-connection
           mount: /opt/
       #1. create volume at container volume
