@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: env-deploy
+  labels: 
+    app: env
+spec:
+  replicas: 2
+  selector: 
+    matchLabels: 
+      app: env
+  template:
+    metadata:
+      labels:
+        app: env
+    spec:
+      containers:
+      - name: env-container
+        image: wordpress
+        ports:
+        - containerPort: 80
+        env: 
+        - name: WORDPRESS_VERSION
+          value: "4.2.2"
+        - name: WORDPRESS_USER
+          value: "admin"
