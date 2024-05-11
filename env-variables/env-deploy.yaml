@@ -16,11 +16,11 @@ spec:
     spec:
       containers:
       - name: env-container
-        image: wordpress
+        image: wordpress:latest
         ports:
         - containerPort: 80
         env: 
         - name: WORDPRESS_VERSION
-          value: "4.2.2"
+          value: "5.2.2"
         - name: WORDPRESS_USER
-          value: "admin"
+          value: "ubuntu"
