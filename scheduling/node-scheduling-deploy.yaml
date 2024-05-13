@@ -12,10 +12,12 @@ spec:
   template:
     metadata: 
       labels:
-        app: nginx
+        app: nginx-app
     spec: 
       nodeSelector:
         node-name: worker01
       containers:
       - name: nginx-container
-        image: 
+        image: nginx:latest
+        ports:
+        - containerPort: 80
