@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-affinity-preferred
+  labels:
+   app: node-affinity-preferred-app
+spec: 
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: node-affinity-preferred-app
+  metadata:
+    labels:
+    app: node-affinity-preferred-app
+  spec:
+    affinity:
+      nodeAffinity: 
+        preferredDuringSchedulingIgnoredDuringExecution: 
+        - weight: 1
+          preference: 
+            matchExpressions: 
+            - key: node-name
+              operator: In 
+              values:
+              - worker01
+    containers:
+    - name: node-affinity-preferred-container
+      image: nginx:latest
+      ports:
+      - containerPort: 80
