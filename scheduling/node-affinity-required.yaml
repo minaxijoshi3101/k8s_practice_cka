@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: node-affinity-required-deploy
+  labels:
+    app: required-app
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: required-app
+  template: 
+    metadata:
+    labels:
+      app: required-app
+    spec:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: node-name
+            operator: in
+            values: 
+            - worker01
+      containers:
+      - name: nginx-required-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+          
