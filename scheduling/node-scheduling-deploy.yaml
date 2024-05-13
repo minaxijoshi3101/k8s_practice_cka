@@ -11,7 +11,8 @@ spec:
       app: nginx-app
   template:
     metadata: 
-      app: nginx
+      labels:
+        app: nginx
     spec: 
       nodeSelector:
         node-name: worker01
