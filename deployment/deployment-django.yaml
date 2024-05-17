@@ -16,6 +16,8 @@ spec:
     spec:
       containers:
       - name: django-container
+       #The Deployment defines a replica set of pods running the myapp container. Initially, the image myapp:blue is used.
+       #image: minaxijoshi/python-django-app:blue
         image: minaxijoshi/python-django-app:latest
         ports: 
         - containerPort: 8000
