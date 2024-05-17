@@ -15,7 +15,7 @@ spec:
         app: nginx-2
     spec:
       nodeSelector: 
-        node: woker1
+        node: worker1
       containers:
       - name: nginx-container-2
         image: nginx:latest
