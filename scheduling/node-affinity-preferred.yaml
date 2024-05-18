@@ -15,15 +15,16 @@ spec:
         app: node-affinity-preferred-app
     spec:
       affinity:
-        nodeAffinity: 
+        nodeAffinity:
+          #Preferred a node which has label key node-name and value as worker01
           preferredDuringSchedulingIgnoredDuringExecution: 
           - weight: 1
             preference: 
               matchExpressions: 
-              - key: node-name
+              - key: node
                 operator: In 
                 values:
-                - worker01
+                - worker1
       containers:
       - name: node-affinity-preferred-container
         image: nginx:latest
