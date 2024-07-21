@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: seh-ingress
+spec:
+  rules:
+  - host: "successeduhub.online"
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: seh-deploy
+            port:
+              number: 8080
+

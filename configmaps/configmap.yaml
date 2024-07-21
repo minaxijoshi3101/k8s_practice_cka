@@ -8,10 +8,10 @@ data:
   db-port: "3309"
   host : mysql
   dbName: EmployeeDB
-  ssl.enabled: true
-  ssl.key-store: "/app/certs/client_keystore.jks
-  ssl.key-store-type: jks
-  tomcat:
-    max-threads: 500
+  #ssl.enabled: true
+  #ssl.key-store: "/app/certs/client_keystore.jks
+  #ssl.key-store-type: jks
+  #tomcat:
+  #  max-threads: 500
 
   
