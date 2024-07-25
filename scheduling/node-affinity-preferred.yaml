@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-affinity-preferred
+  name: node-affinity-preferred-deployment
   labels:
    app: node-affinity-preferred-app
 spec: 
