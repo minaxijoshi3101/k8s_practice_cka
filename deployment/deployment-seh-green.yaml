@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-deploy
+  labels:
+    app: green-app
+spec:
+  selector:
+    matchLabels:
+      app: green-app
+  replicas: 2
+  template:
+    metadata:
+      name: green-deploy-container
+      labels: 
+        app: green-app
+    spec:
+      containers:
+      - name: seh-green-app-container
+        image: minaxijoshi/sehblinkingapp-green:1.0.0
+        ports:
+        - containerPort: 8000
