@@ -3,20 +3,36 @@ kind: Deployment
 metadata:
   name: green-deploy
   labels:
-    app: green-app
+    app: seh-green
 spec:
   selector:
     matchLabels:
-      app: green-app
+      app: seh-green
   replicas: 2
   template:
     metadata:
       name: green-deploy-container
       labels: 
-        app: green-app
+        app: seh-green
     spec:
       containers:
       - name: seh-green-app-container
         image: minaxijoshi/sehblinkingapp-green:1.0.0
         ports:
         - containerPort: 8000
+--- 
+apiVersion: v1 
+kind: Service
+metadata:
+  name: seh-green-svc
+  labels:
+    app: seh-green
+spec:
+  selector:
+    app: seh-green
+  type: NodePort
+  ports:
+  - nodePort: 30001
+    port: 8000
+    protocol: TCP
+    targetPort: 8000

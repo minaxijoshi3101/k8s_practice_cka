@@ -3,17 +3,17 @@ kind: Deployment
 metadata:
   name: blue-deploy
   labels:
-    app: blue-app
+    app: seh-blue
 spec:
   selector:
     matchLabels:
-      app: blue-app
+      app: seh-blue
   replicas: 2
   template:
     metadata:
       name: blue-deploy-container
       labels: 
-        app: blue-app
+        app: seh-blue
     spec:
       containers:
       - name: seh-blue-app-container
