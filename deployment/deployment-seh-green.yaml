@@ -32,7 +32,7 @@ spec:
     app: seh-green
   type: NodePort
   ports:
-  - nodePort: 30001
+  - nodePort: 30002
     port: 8000
     protocol: TCP
     targetPort: 8000
