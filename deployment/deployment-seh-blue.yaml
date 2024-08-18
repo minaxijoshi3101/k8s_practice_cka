@@ -27,7 +27,7 @@ metadata:
   name: seh-blue-svc
 spec:
   selector:
-    app: seh-blue
+    app: seh-green
   type: NodePort
   ports:
   - nodePort: 30001
