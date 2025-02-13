@@ -8,10 +8,10 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: /app
+        path: /blinkapp/blink
         backend:
           service:
-            name: seh-deploy
+            name: python-green-deployment
             port:
               number: 80
 
