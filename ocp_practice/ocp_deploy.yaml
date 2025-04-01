@@ -14,7 +14,13 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.14.2
+        image: registry.redhat.io/rhel8/nginx-120
         ports:
-        - containerPort: 80
-
+        - containerPort: 8080
+        command: ["nginx", "-g", "daemon off;"]
+        volumeMounts:
+          - name: nginx-cache
+            mountPath: /var/cache/nginx
+      volumes:
+        - name: nginx-cache
+          emptyDir: {}
